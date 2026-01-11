@@ -1,34 +1,54 @@
 package frontend;
 
+import io.github.palexdev.materialfx.MFXResourcesLoader;
+import io.github.palexdev.materialfx.controls.MFXButton;
+import io.github.palexdev.materialfx.controls.MFXComboBox;
+import io.github.palexdev.materialfx.controls.MFXTextField;
+import io.github.palexdev.mfxresources.fonts.MFXFontIcon;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ImmersingScore extends Application {
     @Override
     public void start(Stage primaryStage) {
-        // 1. 创建界面控件
-        Label helloLabel = new Label("Hello JavaFX! （Maven 项目）"); // 文本标签
-        Button clickButton = new Button("点击我"); // 按钮
+        // ===== 1. 初始化MaterialFX 必须放在第一行 =====
+        MFXResourcesLoader.load(ImmersingScore.class);
 
-        // 给按钮添加点击事件
-        clickButton.setOnAction(event -> helloLabel.setText("按钮已点击！"));
+        // ===== 2. 创建MaterialFX的核心控件 =====
+        // MaterialFX输入框 (替代原生TextField)
+        MFXTextField mfxTextField = new MFXTextField();
+        mfxTextField.setPromptText("请输入内容 (MaterialFX输入框)");
+        mfxTextField.setPrefWidth(300);
 
-        // 2. 创建布局容器，摆放控件（VBox：垂直布局）
-        VBox root = new VBox(10); // 10 是控件之间的间距
-        root.getChildren().addAll(helloLabel, clickButton); // 添加控件到布局
-        root.setStyle("-fx-alignment: center; -fx-padding: 20px;"); // 样式：居中+内边距
+        // MaterialFX下拉框 (替代原生ComboBox)
+        ObservableList<String> options = FXCollections.observableArrayList("Java", "JavaFX", "MaterialFX", "SpringBoot");
+        MFXComboBox<String> mfxComboBox = new MFXComboBox<>(options);
+        mfxComboBox.setPromptText("请选择 (MaterialFX下拉框)");
+        mfxComboBox.setPrefWidth(300);
 
-        // 3. 创建场景（Scene：包含布局和控件的容器）
-        Scene scene = new Scene(root, 300, 200); // 宽300，高200
+        // MaterialFX按钮 (替代原生Button)
+        MFXButton mfxButton = new MFXButton("MaterialFX 按钮 点击我");
+        mfxButton.setPrefWidth(300);
+        // 按钮点击事件（和原生JavaFX完全一致）
+        mfxButton.setOnAction(event -> {
+            String text = mfxTextField.getText();
+            String select = mfxComboBox.getValue();
+            System.out.println("输入内容：" + text + " | 选择项：" + select);
+        });
 
-        // 4. 配置主窗口并展示
-        primaryStage.setTitle("JavaFX Maven 入门 Demo"); // 窗口标题
-        primaryStage.setScene(scene); // 将场景设置到主窗口
-        primaryStage.setResizable(false); // 禁止窗口缩放
-        primaryStage.show(); // 显示窗口
+        // ===== 3. 布局容器 + 场景 + 舞台 =====
+        VBox root = new VBox(20); // 垂直布局，控件间距20
+        root.setStyle("-fx-padding: 30;"); // 内边距30
+        root.getChildren().addAll(mfxTextField, mfxComboBox, mfxButton);
+
+        Scene scene = new Scene(root, 400, 400);
+        primaryStage.setTitle("MaterialFX 纯Java编码示例");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }
