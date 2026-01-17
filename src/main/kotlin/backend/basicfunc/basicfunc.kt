@@ -3,9 +3,9 @@ package tech.cpstudio.backend.basicfunc
 import java.io.File
 
 /**
- * 获取用户数据存储位置，位于软件工作目录的data文件夹中
+ * 获取程序工作目录
  */
-fun getUserDataLocation(): String {
+fun getWorkingDir(): String {
     val current = File("").absolutePath
-    return "$current/data"
+    return "$current"
 }

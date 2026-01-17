@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>tech.cpstudio</groupId>
+    <groupId>tech.ieducation</groupId>
     <artifactId>ImmersingScore</artifactId>
     <version>1.0-SNAPSHOT</version>
 
@@ -18,6 +18,11 @@
         <repository>
             <id>mavenCentral</id>
             <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>openjfx</id>
+            <name>OpenJFX Repository</name>
+            <url>https://openjfx.io/maven/</url>
         </repository>
     </repositories>
 
@@ -116,11 +121,6 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
             <version>21.0.6</version>
-        </dependency>
-        <dependency>
-            <groupId>io.github.palexdev</groupId>
-            <artifactId>materialfx</artifactId>
-            <version>11.17.0</version>
         </dependency>
     </dependencies>
 

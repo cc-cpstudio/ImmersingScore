@@ -6,5 +6,5 @@ package tech.cpstudio.backend.ruleset
  */
 data class JsonedRuleset(
     val className: String,
-    val rules: List<JsonedRecordable>
+    val rules: List<JsonedRule>
 )

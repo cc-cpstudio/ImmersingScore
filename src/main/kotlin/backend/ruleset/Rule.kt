@@ -11,10 +11,10 @@ import java.util.UUID
  * @property type 规则类型
  * @property actualScore 该规则实际对应的积分，可能为正整数、负整数
  */
-abstract class Recordable(val uuid: String, var name: String, var score: Int) {
+abstract class Rule(val uuid: String, var name: String, var score: Int) {
     constructor(): this(UUID.randomUUID().toString().replace("-", ""), "新的规则", 1)
 
-    abstract val type: RecordableType
+    abstract val type: RuleType
 
     init {
         if (score < 0)

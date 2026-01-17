@@ -1,6 +1,6 @@
 package tech.cpstudio.backend.record
 
-import tech.cpstudio.backend.ruleset.Recordable
+import tech.cpstudio.backend.ruleset.Rule
 import java.time.LocalDateTime
 
 /**
@@ -10,5 +10,5 @@ import java.time.LocalDateTime
  */
 data class Record(
     val time: LocalDateTime,
-    val detail: Recordable,
+    val detail: Rule,
 )
