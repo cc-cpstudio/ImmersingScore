@@ -1,7 +1,5 @@
 package tech.cpstudio.backend.ruleset
 
-import backend.ruleset.DidYouRepeatSth
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import tech.cpstudio.backend.basicfunc.getWorkingDir
 import java.io.File
@@ -13,9 +11,20 @@ import java.io.File
  * @property ruleFactory 规则工厂，用于根据JsonedRule创建规则对象
  * @property resolve 将规则集从Json文件中读入
  * @property serialize 将规则集写入Json文件
+ * @property addRule 添加规则
+ * @property removeRule 删除规则
  */
 class Ruleset(val belongTo: String) {
     private val rules = mutableMapOf<String, Rule>()
+
+    init {
+        resolve()
+        if (rules.isEmpty()) {
+            addRule(Praising())
+            addRule(Caution())
+            addRule(Prize())
+        }
+    }
 
     fun ruleFactory(jsoned: JsonedRule): Rule {
         return when (jsoned.type) {
