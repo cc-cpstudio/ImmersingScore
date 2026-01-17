@@ -20,15 +20,7 @@ public class ScoreTag extends Region {
         this.score = score;
         this.type = type;
 
-        String displayText;
-        if (type == ScoreTagType.POSITIVE) {
-            displayText = "+" + score.toString();
-        } else if (type == ScoreTagType.NEGATIVE) {
-            displayText = "-" + score.toString();
-        } else {
-            throw new IllegalArgumentException("Invalid ScoreTagType");
-        }
-        textLabel.setText(displayText);
+        textLabel.setText(type == ScoreTagType.POSITIVE ? "+" + score.toString() : "-" + score.toString());
 
         initView();
     }
@@ -76,5 +68,6 @@ public class ScoreTag extends Region {
 
     public void setScore(Integer score) {
         this.score = score;
+        textLabel.setText(type == ScoreTagType.POSITIVE ? "+" + score.toString() : "-" + score.toString());
     }
 }

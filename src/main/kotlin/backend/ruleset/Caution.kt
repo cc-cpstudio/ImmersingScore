@@ -11,7 +11,4 @@ class Caution(uuid: String, name: String, score: Int) : Rule(uuid, name, score) 
     constructor(): this(UUID.randomUUID().toString().replace("-", ""), "新的规则", 1)
 
     override val type: RuleType = RuleType.CAUTION
-    override fun actualScore(): Int {
-        return -score
-    }
 }

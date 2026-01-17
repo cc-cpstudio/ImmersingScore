@@ -20,5 +20,4 @@ abstract class Rule(val uuid: String, var name: String, var score: Int) {
         if (score < 0)
             throw IncorrectScore()
     }
-    abstract fun actualScore(): Int
 }
