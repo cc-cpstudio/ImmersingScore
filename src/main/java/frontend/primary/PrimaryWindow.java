@@ -26,9 +26,7 @@ public class PrimaryWindow {
     @FXML
     public Label currentClassLabel;
 
-    public PrimaryWindow() {
-        
-    }
+    public PrimaryWindow() { }
 
     @FXML
     public void switchClicked(ActionEvent actionEvent) {
@@ -36,6 +34,7 @@ public class PrimaryWindow {
         Optional<Class> result = newClass.showAndWait();
         result.ifPresent(aClass -> {
             currentClass = aClass;
+            refresh();
         });
     }
 

@@ -1,5 +1,6 @@
 package tech.cpstudio.backend.ruleset
 
+import backend.ruleset.UnknownRuleType
 import com.google.gson.GsonBuilder
 import tech.cpstudio.backend.basicfunc.getWorkingDir
 import java.io.File
@@ -31,6 +32,7 @@ class Ruleset(val belongTo: String) {
             RuleType.PRAISING -> Praising(jsoned.uuid, jsoned.name, jsoned.score)
             RuleType.CAUTION -> Caution(jsoned.uuid, jsoned.name, jsoned.score)
             RuleType.PRIZE -> Prize(jsoned.uuid, jsoned.name, jsoned.score)
+            RuleType.UNKNOWN -> throw UnknownRuleType()
         }
     }
 

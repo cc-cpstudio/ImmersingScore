@@ -1,11 +1,9 @@
 package frontend.primary;
 
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import tech.cpstudio.backend.class_.Class;
+import tech.cpstudio.backend.class_.ClassManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +18,11 @@ public class ClassSwitcherDialog extends Dialog<Class> {
         ToggleGroup group = new ToggleGroup();
 
         List<RadioButton> classes = new ArrayList<>();
-        classes.add(new RadioButton("Class 1"));
-        classes.add(new RadioButton("Class 2"));
-        classes.add(new RadioButton("Class 3"));
+
+        for (Class class_ : ClassManager.INSTANCE.getClasses()) {
+            classes.add(new RadioButton(class_.getName()));
+        }
+
         for (RadioButton button : classes) {
             button.setToggleGroup(group);
             if (button.getText().equals(currentClass.getName())) {
@@ -35,10 +35,18 @@ public class ClassSwitcherDialog extends Dialog<Class> {
         getDialogPane().getButtonTypes().addAll(javafx.scene.control.ButtonType.OK, javafx.scene.control.ButtonType.CANCEL);
         setResultConverter(buttonType -> {
             if (buttonType == ButtonType.OK) {
-                return null; // TODO: Return selected class
-            } else {
-                return null;
+                Toggle selected = group.getSelectedToggle();
+                if (selected != null) {
+                    RadioButton selectedButton = (RadioButton) selected;
+                    Class class_ = ClassManager.INSTANCE.findClass(selectedButton.getText());
+                    if (class_ != null) {
+                        return class_;
+                    } else {
+                        throw new RuntimeException("ber，班怎么解散了");
+                    }
+                }
             }
+            return null;
         });
     }
 }
