@@ -8,6 +8,9 @@ import tech.cpstudio.backend.class_.ClassManager;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 按下切换班级按钮时弹出的对话框
+ */
 public class ClassSwitcherDialog extends Dialog<Class> {
     public ClassSwitcherDialog(Class currentClass) {
         super();
