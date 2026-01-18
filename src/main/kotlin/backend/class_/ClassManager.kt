@@ -3,6 +3,7 @@ package tech.cpstudio.backend.class_
 import com.google.gson.GsonBuilder
 import tech.cpstudio.backend.basicfunc.getWorkingDir
 import tech.cpstudio.backend.ruleset.Ruleset
+import tech.cpstudio.backend.student.JsonedStudent
 import tech.cpstudio.backend.student.StudentMetadata
 import java.io.File
 

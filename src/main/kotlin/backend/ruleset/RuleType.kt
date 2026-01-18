@@ -10,5 +10,6 @@ package tech.cpstudio.backend.ruleset
 enum class RuleType {
     PRAISING,
     CAUTION,
-    PRIZE
+    PRIZE,
+    UNKNOWN
 }

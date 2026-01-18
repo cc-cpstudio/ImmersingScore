@@ -11,10 +11,13 @@ import java.util.UUID
  * @property type 规则类型
  * @property actualScore 该规则实际对应的积分，可能为正整数、负整数
  */
-abstract class Rule(val uuid: String, var name: String, var score: Int) {
-    constructor(): this(UUID.randomUUID().toString().replace("-", ""), "新的规则", 1)
+abstract class Rule(val uuid: String, var name: String, val type: RuleType, var score: Int) {
+    constructor(): this(UUID.randomUUID().toString().replace("-", ""), "新的规则", RuleType.UNKNOWN, 1)
+    constructor(jsonedRule: JsonedRule): this(jsonedRule.uuid, jsonedRule.name, jsonedRule.type, jsonedRule.score)
 
-    abstract val type: RuleType
+    fun toJson(): JsonedRule {
+        return JsonedRule(uuid, name, type, score)
+    }
 
     init {
         if (score < 0)
