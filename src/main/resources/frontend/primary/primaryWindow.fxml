@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.primary.PrimaryWindow" prefHeight="400.0" prefWidth="600.0">
+    <FlowPane fx:id="studentPane"/>
+
+    <BorderPane>
+        <left>
+            <HBox spacing="5" alignment="CENTER" BorderPane.alignment="CENTER_LEFT">
+                <padding>
+                    <Insets left="5" right="5" top="5" bottom="5"/>
+                </padding>
+                <Label fx:id="currentClassLabel"/>
+                <Button text="Switch" onAction="#switchClicked"/>
+                <Button text="Edit" onAction="#editClicked"/>
+            </HBox>
+        </left>
+        <right>
+            <HBox spacing="5" alignment="CENTER" BorderPane.alignment="CENTER_RIGHT">
+                <padding>
+                    <Insets left="5" right="5" top="5" bottom="5"/>
+                </padding>
+                <Button text="Filter" onAction="#filterClicked"/>
+                <Button text="Minimize" onAction="#minimizeClicked"/>
+                <Button text="Tools" onAction="#toolsClicked"/>
+                <Button text="Ranking" onAction="#rankingClicked"/>
+            </HBox>
+        </right>
+    </BorderPane>
+</VBox>
