@@ -24,6 +24,10 @@
             <name>OpenJFX Repository</name>
             <url>https://openjfx.io/maven/</url>
         </repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
     </repositories>
 
     <build>
@@ -37,7 +41,7 @@
                 <executions>
                     <execution>
                         <id>compile</id>
-                        <phase>compile</phase>
+                        <phase>process-sources</phase>
                         <goals>
                             <goal>compile</goal>
                         </goals>
@@ -121,6 +125,21 @@
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-graphics</artifactId>
             <version>21.0.6</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.github.Ivan-Kalatchev</groupId>
+            <artifactId>FluentFX</artifactId>
+            <version>master-SNAPSHOT</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.github.oshi</groupId>
+            <artifactId>oshi-core</artifactId>
+            <version>6.4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.kotlinx</groupId>
+            <artifactId>kotlinx-coroutines-core</artifactId>
+            <version>1.8.0</version>
         </dependency>
     </dependencies>
 

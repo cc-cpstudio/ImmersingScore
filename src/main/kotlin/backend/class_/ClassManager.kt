@@ -1,5 +1,6 @@
 package tech.cpstudio.backend.class_
 
+import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import tech.cpstudio.backend.basicfunc.getWorkingDir
 import tech.cpstudio.backend.record.RecordList
@@ -10,7 +11,7 @@ import tech.cpstudio.backend.student.StudentMetadata
 import java.io.File
 
 object ClassManager {
-    val gson = GsonBuilder()
+    val gson: Gson? = GsonBuilder()
             .create()
 
     val classes = mutableListOf<Class>()
@@ -28,7 +29,7 @@ object ClassManager {
             val studentFiles = File("${it.absolutePath}/students/").listFiles()
             val students = mutableListOf<Student>()
             (studentFiles?.filter { stuff -> stuff.isFile })?.forEach { file ->
-                val jsonedStudent = gson.fromJson(file.readText(), JsonedStudent::class.java)
+                val jsonedStudent = gson!!.fromJson(file.readText(), JsonedStudent::class.java)
                 students.add(Student(
                     StudentMetadata(jsonedStudent.metadata.name, jsonedStudent.metadata.id),
                     RecordList(StudentMetadata(jsonedStudent.metadata.name, jsonedStudent.metadata.id))

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.editor.EditorWindow" prefHeight="400.0" prefWidth="600.0">
+    <top>
+        <MenuBar>
+            <Menu text="General">
+                <MenuItem text="Open general page" onAction="#switchToGeneral"/>
+            </Menu>
+            <Menu text="Students">
+                <MenuItem text="Open students page" onAction="#switchToStudents"/>
+            </Menu>
+            <Menu text="Rules">
+                <MenuItem text="Open rules page" onAction="#switchToRules"/>
+            </Menu>
+            <Menu text="Sync">
+                <MenuItem text="Open sync page" onAction="#switchToSync"/>
+            </Menu>
+        </MenuBar>
+    </top>
+    <center>
+        <StackPane fx:id="contentContainer"/>
+    </center>
+</BorderPane>
