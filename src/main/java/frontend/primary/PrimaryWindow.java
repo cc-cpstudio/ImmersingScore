@@ -65,8 +65,14 @@ public class PrimaryWindow {
     }
 
     @FXML
-    public void toolsClicked(ActionEvent actionEvent) {
+    public void toolsClicked(ActionEvent actionEvent) throws IOException {
+        Stage toolsStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/frontend/tools/toolWindow.fxml"));
+        Pane root = loader.load();
 
+        toolsStage.setScene(new Scene(root));
+        toolsStage.setTitle("ImmersingScore - 工具集");
+        toolsStage.show();
     }
 
     @FXML
