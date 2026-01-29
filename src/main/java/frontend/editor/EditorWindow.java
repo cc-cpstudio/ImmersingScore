@@ -2,6 +2,7 @@ package frontend.editor;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.StackPane;
 
 /**
@@ -10,6 +11,7 @@ import javafx.scene.layout.StackPane;
 public class EditorWindow {
     @FXML
     public StackPane contentContainer;
+    public TabPane mainTabPane;
 
     @FXML
     public void switchToGeneral(ActionEvent actionEvent) {
@@ -29,5 +31,18 @@ public class EditorWindow {
     @FXML
     public void switchToSync(ActionEvent actionEvent) {
 
+    }
+
+    @FXML
+    public void initialize() {
+        mainTabPane.getSelectionModel()
+                .selectedItemProperty()
+                .addListener((obs, oldTab, newTab) -> {
+                    if (newTab != null) {
+                        String tabText = newTab.getText();
+                        // TODO
+                    }
+                });
+        mainTabPane.getSelectionModel().selectFirst();
     }
 }

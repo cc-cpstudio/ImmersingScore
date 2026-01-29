@@ -6,24 +6,30 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="frontend.editor.EditorWindow" prefHeight="400.0" prefWidth="600.0">
-    <top>
-        <MenuBar>
-            <Menu text="General">
-                <MenuItem text="Open general page" onAction="#switchToGeneral"/>
-            </Menu>
-            <Menu text="Students">
-                <MenuItem text="Open students page" onAction="#switchToStudents"/>
-            </Menu>
-            <Menu text="Rules">
-                <MenuItem text="Open rules page" onAction="#switchToRules"/>
-            </Menu>
-            <Menu text="Sync">
-                <MenuItem text="Open sync page" onAction="#switchToSync"/>
-            </Menu>
-        </MenuBar>
-    </top>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="frontend.editor.EditorWindow"
+            prefHeight="400.0" prefWidth="600.0">
     <center>
-        <StackPane fx:id="contentContainer"/>
+        <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE">
+            <Tab text="General">
+                <fx:include source="general.fxml"/>
+            </Tab>
+            <Tab text="Students">
+                <fx:include source="students.fxml"/>
+            </Tab>
+            <Tab text="Rules">
+                <fx:include source="rules.fxml"/>
+            </Tab>
+            <Tab text="Sync">
+                <fx:include source="sync.fxml"/>
+            </Tab>
+            <Tab text="Others">
+                <fx:include source="others.fxml"/>
+            </Tab>
+            <Tab text="Danger Zone">
+                <fx:include source="dangerZone.fxml"/>
+            </Tab>
+        </TabPane>
     </center>
 </BorderPane>

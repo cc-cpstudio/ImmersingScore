@@ -2,13 +2,18 @@ package frontend.primary;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
+import javafx.stage.Stage;
 import tech.cpstudio.backend.class_.Class;
 import tech.cpstudio.backend.student.Student;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -39,8 +44,14 @@ public class PrimaryWindow {
     }
 
     @FXML
-    public void editClicked(ActionEvent actionEvent) {
+    public void editClicked(ActionEvent actionEvent) throws IOException {
+        Stage editorStage = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/frontend/editor/editorWindow.fxml"));
+        Pane root = loader.load();
 
+        editorStage.setScene(new Scene(root));
+        editorStage.setTitle("ImmersingScore - 编辑");
+        editorStage.show();
     }
 
     @FXML

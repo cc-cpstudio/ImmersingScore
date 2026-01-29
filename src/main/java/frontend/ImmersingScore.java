@@ -12,7 +12,7 @@ public class ImmersingScore extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/frontend/primary/PrimaryWindow.fxml"));
-        BorderPane root = loader.load();
+        Pane root = loader.load();
 
         primaryStage.setScene(new Scene(root));
         primaryStage.setTitle("Immersing Score");
